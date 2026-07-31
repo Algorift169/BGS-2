@@ -1,0 +1,15 @@
+{
+  "name": "bgs-exam",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "disable-devtool": "^0.3.8"
+  }
+}

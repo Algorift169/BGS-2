@@ -1,6 +1,3 @@
-import disableDevtool from 'disable-devtool';
-disableDevtool();
-
 // Phase 1: Question Bank (90 Extracted Board-Relevant MCQs)
 const questions = [
     // Page 298, Q11

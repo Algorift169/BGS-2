@@ -206,8 +206,7 @@ const viewResultsBtn = document.getElementById('view-results-btn');
 const backToHomeBtn = document.getElementById('back-to-home-btn');
 const previousResultsBody = document.getElementById('previous-results-body');
 const noResultsMsg = document.getElementById('no-results-msg');
-const clearResultsBtn = document.getElementById('clear-results-btn');
-const clearContainer = document.getElementById('clear-container');
+
 
 // Validation and Start
 document.getElementById('start-exam-btn').addEventListener('click', () => {
@@ -458,11 +457,9 @@ function showPreviousResults() {
     if (attempts.length === 0) {
         document.querySelector('.results-table').style.display = 'none';
         noResultsMsg.style.display = 'block';
-        clearContainer.style.display = 'none';
     } else {
         document.querySelector('.results-table').style.display = 'table';
         noResultsMsg.style.display = 'none';
-        clearContainer.style.display = 'flex';
         
         // Display newest first
         attempts.slice().reverse().forEach(attempt => {
@@ -503,11 +500,4 @@ if (backToHomeBtn) {
     });
 }
 
-if (clearResultsBtn) {
-    clearResultsBtn.addEventListener('click', () => {
-        if (confirm("Are you sure you want to clear all previous results history? This action cannot be undone.")) {
-            localStorage.removeItem('examAttempts');
-            showPreviousResults();
-        }
-    });
-}
+

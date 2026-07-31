@@ -325,28 +325,6 @@ body {
     background-color: #f1f5f9;
 }
 
-.clear-btn-container {
-    display: flex;
-    justify-content: flex-end;
-    margin: 15px 0;
-}
-
-#clear-results-btn {
-    background-color: transparent;
-    color: var(--danger);
-    border: 1px solid var(--danger);
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-#clear-results-btn:hover {
-    background-color: var(--danger);
-    color: var(--white);
-}
 
 /* Mobile */
 @media (max-width: 600px) {

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSC 2028 MCQ Examination</title>
+  <script type="module" crossorigin src="./assets/index-2MFxySp-.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C2adzI0d.css">
+</head>
+<body>
+
+    <!-- Landing Page -->
+    <div id="landing-page" class="container">
+        <div class="landing-card">
+            <h1>SSC 2028 Board Exam</h1>
+            <p class="subtitle">Bangladesh & Global Studies (BGS)</p>
+            
+            <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" placeholder="Enter your name">
+            </div>
+            
+            <div class="form-group">
+                <label for="examNumber">Exam Number (Roll/ID)</label>
+                <input type="text" id="examNumber" placeholder="Exam number">
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" value="Bangladesh and Global Studies" readonly>
+            </div>
+
+            <button id="start-exam-btn" class="btn-primary">Start Exam</button>
+            <button id="view-results-btn" class="btn-secondary" style="margin-top: 15px; width: 100%;">Previous Results</button>
+        </div>
+    </div>
+
+    <!-- Previous Results Page -->
+    <div id="previous-results-page" class="container" style="display: none;">
+        <div class="result-card">
+            <h1>Attempt History</h1>
+            <p class="subtitle">Bangladesh & Global Studies (BGS)</p>
+            
+            <div class="results-table-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Roll/ID</th>
+                            <th>Score</th>
+                            <th>Date & Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="previous-results-body">
+                        <!-- Previous attempts will be injected here -->
+                    </tbody>
+                </table>
+                <div id="no-results-msg" style="padding: 20px; color: var(--text-light); text-align: center; display: none;">
+                    No previous attempts found.
+                </div>
+            </div>
+
+            <div class="clear-btn-container" id="clear-container">
+                <button id="clear-results-btn">Clear History</button>
+            </div>
+            
+            <button id="back-to-home-btn" class="btn-secondary" style="margin-top: 20px; width: 100%;">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Exam Page -->
+    <div id="exam-page" class="container" style="display: none; flex-direction: column;">
+        <!-- Pre-exam Instruction Card -->
+        <div id="exam-instruction-card" class="result-card" style="width: 100%;">
+            <h1>Exam Instructions</h1>
+            <p class="subtitle" style="margin-bottom: 20px;">Bangladesh & Global Studies (BGS)</p>
+            
+            <div class="result-section" style="text-align: left; margin: 20px 0; padding-top: 15px;">
+                <h3>Exam Details</h3>
+                <div class="info-row">
+                    <span>Student Name:</span>
+                    <span id="instruction-name">-</span>
+                </div>
+                <div class="info-row">
+                    <span>Roll/ID:</span>
+                    <span id="instruction-roll">-</span>
+                </div>
+                <div class="info-row">
+                    <span>Total Questions:</span>
+                    <span>90 MCQs</span>
+                </div>
+                <div class="info-row">
+                    <span>Time Limit:</span>
+                    <span>1 Hour 25 Minutes (Auto-submit on expiry)</span>
+                </div>
+                <div class="info-row">
+                    <span>Scoring Rules:</span>
+                    <span style="text-align: right;">
+                        Correct Answer: +1 mark<br>
+                        Wrong Answer: −0.5 marks<br>
+                        Unanswered: −0.7 marks
+                    </span>
+                </div>
+            </div>
+            
+            <button id="begin-exam-btn" class="btn-primary" style="margin-top: 20px;">Begin Exam</button>
+        </div>
+
+        <!-- Actual Exam Interface -->
+        <div id="exam-interface" style="display: none; width: 100%; flex-direction: column;">
+            <header class="exam-header">
+                <div class="student-info">
+                    <span id="display-name">Name: </span>
+                    <span id="display-roll">Roll: </span>
+                </div>
+                <div class="question-progress">
+                    Question <span id="current-q-num">1</span> of <span id="total-q-num">90</span>
+                </div>
+                <div class="timer-section">
+                    <div class="timer-count">
+                        Time Left: <span id="timer-display">01:25:00</span>
+                    </div>
+                    <button id="next-btn" class="btn-next-header">Next</button>
+                </div>
+            </header>
+
+            <div id="question-container" class="question-card">
+                <div class="question-top">
+                    <h3 id="question-text">Loading question...</h3>
+                </div>
+                <div id="options-container" class="options-list">
+                    <!-- Options will be injected here -->
+                </div>
+                <button id="submit-exam-btn" class="btn-primary" style="margin-top: 20px;">Submit Exam</button>
+            </div>
+
+            <footer class="exam-footer">
+                <div class="nav-buttons">
+                    <button id="prev-btn" class="btn-secondary">Previous</button>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Result Page -->
+    <div id="result-page" class="container" style="display: none;">
+        <div class="result-card">
+            <h1>Exam Results</h1>
+            
+            <div class="result-section">
+                <h3>Student Information</h3>
+                <div class="info-row">
+                    <span>Name:</span>
+                    <span id="res-name">-</span>
+                </div>
+                <div class="info-row">
+                    <span>Exam Number:</span>
+                    <span id="res-roll">-</span>
+                </div>
+                <div class="info-row">
+                    <span>Subject:</span>
+                    <span id="res-subject">-</span>
+                </div>
+            </div>
+
+            <div class="result-section">
+                <h3>Performance Summary</h3>
+                <div class="info-row"><span>Total Questions:</span><span id="res-total">90</span></div>
+                <div class="info-row"><span>Attempted:</span><span id="res-attempted">0</span></div>
+                <div class="info-row"><span>Correct Answers:</span><span id="res-correct">0</span></div>
+                <div class="info-row"><span>Wrong Answers:</span><span id="res-wrong">0</span></div>
+                <div class="info-row"><span>Unanswered:</span><span id="res-unanswered">90</span></div>
+                <div class="info-row"><span>Positive Marks (+1 mark each):</span><span id="res-pos">0</span></div>
+                <div class="info-row"><span>Wrong Answer Penalty (−0.5 marks each):</span><span id="res-wrong-penalty">0</span></div>
+                <div class="info-row"><span>Unanswered Penalty (−0.7 marks each):</span><span id="res-unanswered-penalty">0</span></div>
+                <div class="info-row"><span>Total Negative Deduction:</span><span id="res-neg">0</span></div>
+            </div>
+
+            <div class="final-score-container">
+                <h2>Final Score</h2>
+                <div id="res-final-score" class="final-score">0</div>
+            </div>
+            
+            <button id="restart-btn" class="btn-secondary">Restart Exam</button>
+        </div>
+    </div>
+
+</body>
+</html>

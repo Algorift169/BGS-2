@@ -155,6 +155,33 @@ body {
     transition: all 0.3s;
 }
 
+.nav-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-prev-header {
+    background-color: var(--secondary);
+    color: var(--text-dark);
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-prev-header:hover {
+    background-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.btn-prev-header:active {
+    transform: translateY(0);
+}
+
 .btn-next-header {
     background-color: var(--primary);
     color: var(--white);

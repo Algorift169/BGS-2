@@ -172,14 +172,9 @@ const clearContainer = document.getElementById('clear-container');
 
 // Validation and Start
 document.getElementById('start-exam-btn').addEventListener('click', () => {
-    const name = document.getElementById('studentName').value.trim();
-    const roll = document.getElementById('examNumber').value.trim();
+    const name = document.getElementById('studentName').value.trim() || 'Student';
+    const roll = document.getElementById('examNumber').value.trim() || 'N/A';
     const subject = document.getElementById('subject').value.trim();
-
-    if (!name || !roll || !subject) {
-        alert("Please enter your name and Roll/ID before starting the exam.");
-        return;
-    }
 
     localStorage.setItem('studentName', name);
     localStorage.setItem('examNumber', roll);

@@ -335,18 +335,10 @@ function autoSubmitExam() {
 // Submission and Results
 submitBtn.addEventListener('click', () => {
     if (isSubmitted) return;
-    
-    const unanswered = userAnswers.filter(a => a.length === 0).length;
-    if (unanswered === questions.length) {
-        alert("You haven't answered any questions. Please attempt at least one question before submitting.");
-        return;
-    }
 
-    if (confirm("Are you sure you want to submit your exam? You cannot change your answers afterward.")) {
-        isSubmitted = true;
-        if (timerInterval) clearInterval(timerInterval);
-        calculateAndShowResults();
-    }
+    isSubmitted = true;
+    if (timerInterval) clearInterval(timerInterval);
+    calculateAndShowResults();
 });
 
 function saveAttempt(name, roll, score, total, details) {
@@ -371,7 +363,10 @@ function calculateAndShowResults() {
 
     userAnswers.forEach((ans, index) => {
         const q = questions[index];
-        const isCorrect = arraysEqual(ans.sort(), q.ans.sort());
+        const correctAnswers = Array.isArray(q.ans) ? [...q.ans] : [q.ans];
+        const selectedAnswers = [...ans].sort((a, b) => a - b);
+        correctAnswers.sort((a, b) => a - b);
+        const isCorrect = arraysEqual(selectedAnswers, correctAnswers);
         if (ans.length > 0) {
             attempted++;
             if (isCorrect) {
@@ -383,14 +378,14 @@ function calculateAndShowResults() {
         details.push({
             question: q.q,
             userAnswer: ans.map(i => String.fromCharCode(65 + i)).join(', '),
-            correctAnswer: q.ans.map(i => String.fromCharCode(65 + i)).join(', '),
+            correctAnswer: correctAnswers.map(i => String.fromCharCode(65 + i)).join(', '),
             isCorrect: isCorrect,
             attempted: ans.length > 0
         });
     });
 
     const unanswered = questions.length - attempted;
-    const finalScore = correct - (wrong * 0.5);
+    const finalScore = correct;
 
     const studentName = localStorage.getItem('studentName');
     const examNumber = localStorage.getItem('examNumber');
@@ -406,6 +401,7 @@ function calculateAndShowResults() {
     document.getElementById('res-correct').textContent = correct;
     document.getElementById('res-wrong').textContent = wrong;
     document.getElementById('res-unanswered').textContent = unanswered;
+    document.getElementById('res-pos').textContent = correct;
     document.getElementById('res-final-score').textContent = finalScore.toFixed(1);
 
     // Show detailed answer review
@@ -434,7 +430,7 @@ function calculateAndShowResults() {
         const statusColor = d.attempted ? (d.isCorrect ? '#28a745' : '#dc3545') : '#6c757d';
         tr.innerHTML = `
             <td style="padding: 6px 8px; border: 1px solid #ddd;">${i + 1}</td>
-            <td style="padding: 6px 8px; border: 1px solid #ddd; max-width: 300px;">${d.question.substring(0, 100)}${d.question.length > 100 ? '...' : ''}</td>
+            <td style="padding: 6px 8px; border: 1px solid #ddd; max-width: 300px; white-space: pre-line;">${d.question}</td>
             <td style="padding: 6px 8px; border: 1px solid #ddd;">${d.attempted ? d.userAnswer : 'Not attempted'}</td>
             <td style="padding: 6px 8px; border: 1px solid #ddd;">${d.correctAnswer}</td>
             <td style="padding: 6px 8px; border: 1px solid #ddd; text-align: center; color: ${statusColor}; font-weight: bold;">${status}</td>

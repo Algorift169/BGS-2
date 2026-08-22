@@ -1,192 +1,152 @@
 import disableDevtool from 'disable-devtool';
 disableDevtool();
 
-// Phase 1: Question Bank (90 Extracted Board-Relevant MCQs)
+// Phase 1: Question Bank (70 Extracted Board-Relevant MCQs from Guide Book Images)
 const questions = [
-    // Page 298, Q11
-    { id: 1, q: "Which person has the most executive power in Bangladesh?", opt: ["The President", "The Chief Justice", "The Prime Minister", "The Chief Election Commissioner"], ans: 2 },
-    // Page 298, Q12
-    { id: 2, q: "In which year was Upazila system in Bangladesh introduced?", opt: ["1983", "1985", "2000", "2009"], ans: 0 },
-    // Page 298, Q13
-    { id: 3, q: "The party 'P' won 151 seats in Jatiya Sangsad election of Bangladesh. How many reserved women seats will the party get?", opt: ["50", "45", "31", "25"], ans: 2 },
-    // Page 298, Q14
-    { id: 4, q: "Which one is the administrative power of President?", opt: ["To appoint the Prime Minister", "To start the session of parliament", "To proclaim the emergency", "To appoint the Chief Justice"], ans: 0 },
-    // Page 298, Q15
-    { id: 5, q: "Which one is the work of judicial department?", opt: ["To keep human rights", "Abuse of law", "Defence", "To create people's support"], ans: 0 },
-    // Page 298, Q18
-    { id: 6, q: "Mr. Azad is a Joint Secretary as his post. He is the chief of which self-governance?", opt: ["Divisional", "District", "Upazila", "Thana"], ans: 1 },
-    // Page 298, Q19
-    { id: 7, q: "What is the main aim of Judiciary Department?", opt: ["Protect the independence and sovereignty of a country", "Keep the citizen's personal liberty and right", "To establish the political motto", "To manage the education of all citizens"], ans: 1 },
-    // Page 298, Q20
-    { id: 8, q: "Who appoints the Attorney General?", opt: ["The President", "The Prime Minister", "The Law Minister", "The Chief Justice"], ans: 0 },
-    // Page 298, Q21
-    { id: 9, q: "Who dissolved the Parliament by the assent of Prime Minister?", opt: ["Whip of parliament", "Speaker", "Chief Justice", "President"], ans: 3 },
-    // Page 298, Q22
-    { id: 10, q: "Who is in the highest rank?", opt: ["The Prime Minister", "Justice", "The President", "Law Minister"], ans: 2 },
-    // Page 298, Q23
-    { id: 11, q: "Freedom of the individuals is protected by which department?", opt: ["The legislature", "The judiciary", "The executive", "The administrative"], ans: 1 },
-    // Page 298, Q24
-    { id: 12, q: "Who is titular head of the state in the parliamentary system of government?", opt: ["The Prime Minister", "The Speaker", "The President", "The Chief Justice"], ans: 2 },
-    // Page 298, Q25
-    { id: 13, q: "Bicameral Legislature are—", opt: ["Britain", "India", "Bangladesh", "USA"], ans: 0 },
-    // Page 298, Q26
-    { id: 14, q: "The reason for which the President can issue ordinances—", opt: ["if the parliament is dissolved", "if there is no session", "if urgent action is required", "All of the above"], ans: 3 },
-    // Page 298, Q27
-    { id: 15, q: "Government system is the machinery of the state. The significance of this statement is—", opt: ["the state performs its activities through the government", "government is the reflection of the state", "the power of the state is exercised by the government", "All of the above"], ans: 3 },
-    // Page 298, Q28
-    { id: 16, q: "Defense system build up—", opt: ["combination of navy soldiers", "combination of land forces", "combination of air force", "All of the above"], ans: 3 },
-    // Page 298, Q29
-    { id: 17, q: "The roles of the political party in the democratic state are—", opt: ["to create public support", "election campaigning", "to develop political consciousness", "All of the above"], ans: 3 },
-    // Page 299, Q31
-    { id: 18, q: "Mr. 'X' is an officer of which administration?", opt: ["Upazila administration", "District administration", "Divisional administration", "Central administration"], ans: 1 },
-    // Page 299, Q34
-    { id: 19, q: "The Speaker is elected by whose votes?", opt: ["Members of parliament", "People", "Journalists", "Minister"], ans: 0 },
-    // Page 299, Q35
-    { id: 20, q: "Which one will sit in the question marked place? [Diagram: Deputy Commissioner -> ? -> Assistant Secretary]", opt: ["Additional Secretary", "Assistant Secretary", "Senior Secretary", "Joint Secretary"], ans: 2 },
-    // Page 299, Q36
-    { id: 21, q: "On which year was the Upazila system introduced?", opt: ["1983", "1985", "1998", "2009"], ans: 0 },
-    // Page 300, Q50
-    { id: 22, q: "What is the department that manages the administration of the state called?", opt: ["Legislative Department", "Executive Department", "Judiciary Department", "Legislative Council"], ans: 1 },
-    // Page 300, Q51
-    { id: 23, q: "The Legislative Department is a part of what?", opt: ["Supreme Court", "Government", "National Parliament", "Executive Department"], ans: 1 },
-    // Page 300, Q52
-    { id: 24, q: "Which of the following is the function of the Legislative Department?", opt: ["Establishing justice", "Enacting laws", "Punishing lawbreakers", "Managing administrative and official work"], ans: 1 },
-    // Page 300, Q53
-    { id: 25, q: "Which department implements the decisions and the development activities of the state?", opt: ["Administrative department", "Law department", "Judiciary", "Supreme Court"], ans: 0 },
-    // Page 300, Q54
-    { id: 26, q: "Which one is the example for a state consisting of a two-house legislature?", opt: ["India", "Nepal", "South Africa", "Bhutan"], ans: 0 },
-    // Page 300, Q55
-    { id: 27, q: "Who controls the executive body of the state?", opt: ["Legislature", "Chief Justice", "President", "Secretary"], ans: 0 },
-    // Page 300, Q56
-    { id: 28, q: "Which one of the following is the function of the legislature?", opt: ["To establish justice", "To frame laws", "To punish the culprits", "To conduct the administrative and secretarial tasks"], ans: 1 },
-    // Page 300, Q57
-    { id: 29, q: "What is the name of the organ of the government that performs the judicial functions as per the existing laws?", opt: ["Legislature", "Executive", "Judiciary", "Executive"], ans: 2 },
-    // Page 300, Q58
-    { id: 30, q: "The functions of the executive are —", opt: ["To conduct administrative tasks", "To maintain law and order", "To perform judicial functions", "i, ii & iii"], ans: 0 },
-    // Page 300, Q59
-    { id: 31, q: "The government is formed —", opt: ["To run the state", "To maintain law and order", "To run different departments", "i, ii & iii"], ans: 3 },
-    // Page 300, Q60
-    { id: 32, q: "Important function(s) of the government is/are —", opt: ["Maintaining the administration", "Enacting laws", "Establishing justice", "i, ii & iii"], ans: 3 },
-    // Page 300, Q61
-    { id: 33, q: "A part of the legislative body is —", opt: ["Legislature", "Executive", "Parliament", "i, ii & iii"], ans: 2 },
-    // Page 300, Q62
-    { id: 34, q: "Bi-cameral legislature includes —", opt: ["House of the Lord", "House of the Commons", "General Council", "i & ii"], ans: 0 },
-    // Page 302, Q78
-    { id: 35, q: "Important functions performed by the president—", opt: ["Maintaining administrative tasks", "Enactment of laws", "Formation of the government", "i, ii & iii"], ans: 3 },
-    // Page 302, Q79
-    { id: 36, q: "Function(s) of the president is/are—", opt: ["Appointment of the ministers and distribution of the portfolios", "Protecting the right of the members of parliament", "Calling the parliamentary session", "i, ii & iii"], ans: 2 },
-    // Page 302, Q80
-    { id: 37, q: "The president appoints—", opt: ["Chief Justice of the Supreme Court", "Judges of the Supreme Court", "Government higher officials", "i, ii & iii"], ans: 3 },
-    // Page 302, Q81
-    { id: 38, q: "In relation to the prime minister it is applicable that —", opt: ["He/she is the leader of the parliament", "He/she is the leader of the cabinet", "He/she is the center of administrative system", "i, ii & iii"], ans: 3 },
-    // Page 302, Q85
-    { id: 39, q: "Before the twelfth amendment in the constitution, which form of government was in the country?", opt: ["Undemocratic military rule", "Democratic rule", "Democratic rule", "Zamindari system"], ans: 0 },
-    // Page 302, Q86
-    { id: 40, q: "What is the name of the legislature of Bangladesh?", opt: ["National Parliament", "Congress", "Parliament", "Majlish"], ans: 0 },
-    // Page 302, Q87
-    { id: 41, q: "What does the resignation of the prime minister mean?", opt: ["Resignation of the President", "Resignation of the Prime Minister only", "Resignation of the entire cabinet", "Resignation of the MPs"], ans: 2 },
-    // Page 302, Q88
-    { id: 42, q: "When was the 12th amendment of the constitution made?", opt: ["1981", "1991", "2001", "2011"], ans: 1 },
-    // Page 302, Q89
-    { id: 43, q: "Parliamentary form of government system was introduced in Bangladesh amendment through which amendment?", opt: ["11th", "12th", "13th", "14th"], ans: 1 },
-    // Page 302, Q90
-    { id: 44, q: "Which section of the constitution mentions that National Parliament of Bangladesh shall be named as Jatiya Sangsad?", opt: ["59", "53", "59", "65"], ans: 3 },
-    // Page 302, Q91
-    { id: 45, q: "Whose approval is required for the utilization of the state funds?", opt: ["Prime Minister", "Finance Minister", "President", "Jatiya Sangsad"], ans: 1 },
-    // Page 304, Q109
-    { id: 46, q: "Which one is the latest division?", opt: ["Rangpur", "Sylhet", "Cumilla", "Mymensingh"], ans: 3 },
-    // Page 304, Q110
-    { id: 47, q: "The head of the department is known as —", opt: ["Director general", "Secretary", "Director", "Deputy secretary"], ans: 0 },
-    // Page 304, Q111
-    { id: 48, q: "Which one is at the center of the administrative system of Bangladesh?", opt: ["Jatiya Sangsad", "Ganabhaban", "Secretariat", "Divisional administration"], ans: 2 },
-    // Page 304, Q112
-    { id: 49, q: "Mr. Shamsul Haque is serving as the chief executive officer or administrative officer of the ministry. What position does he belong to?", opt: ["Secretary", "Additional Secretary", "Director General", "Minister"], ans: 0 },
-    // Page 304, Q113
-    { id: 50, q: "In order to run the ministry, the minister takes into consideration whose opinion?", opt: ["Secretary", "President", "Prime Minister", "Attorney General"], ans: 0 },
-    // Page 304, Q118
-    { id: 51, q: "Mr. Zahir is an upazila officer. What is the designation of Mr. Zahir?", opt: ["Additional secretary", "Deputy secretary", "Assistant secretary", "Joint secretary"], ans: 2 },
-    // Page 304, Q119
-    { id: 52, q: "The workplace of Mr. Zahir is —", opt: ["Ministry", "Secretariat", "High Court", "Ministry"], ans: 1 },
-    // Page 305, Q121
-    { id: 53, q: "Whose position is next to the divisional commissioner?", opt: ["Senior assistant secretary", "Assistant secretary", "Joint secretary", "District commissioner"], ans: 3 },
-    // Page 305, Q122
-    { id: 54, q: "Which one of the following has the connection with the central administration?", opt: ["Local government", "Upazila administration", "District administration", "Divisional commissioner"], ans: 3 },
-    // Page 305, Q123
-    { id: 55, q: "Where are all district related decisions made by the Secretariat sent to?", opt: ["Divisional commissioner", "District administration", "Straight to the divisional commissioner", "Straight to the district commissioner"], ans: 0 },
-    // Page 305, Q124
-    { id: 56, q: "Deputy commissioner is accountable for his/her works to —", opt: ["Central government", "MPs", "Divisional commissioner", "Government"], ans: 2 },
-    // Page 305, Q125
-    { id: 57, q: "Who imposes and collects land revenues and other taxes of the district?", opt: ["Divisional commissioner", "Additional divisional commissioner", "Assistant secretary", "District commissioner"], ans: 3 },
-    // Page 305, Q127
-    { id: 58, q: "Salauddin Ahmed is an administrative officer. He discharges the duties at the supervisor of the Upazila Parishad and the union parishad. What is his designation?", opt: ["Divisional commissioner", "Upazilanirbahi officer", "District commissioner", "Additional secretary"], ans: 1 },
-    // Page 305, Q131
-    { id: 59, q: "According to the passage, the function(s) of the district commissioner is/are —", opt: ["Collecting revenues", "Maintaining law and order", "Enacting laws", "i & ii"], ans: 0 },
-    // Page 305, Q132
-    { id: 60, q: "The district commissioner is an administrator and a judge as well because —", opt: ["He/she performs judicial tasks for criminal cases", "He/she performs judicial tasks for civil cases", "He/she performs all penal cases and the cases related to law and order", "He/she maintains law and order"], ans: 2 },
-    // Page 306, Q137
-    { id: 61, q: "Union Parishad local government system was introduced in Bangladesh in which year?", opt: ["1885", "1919", "1976", "1997"], ans: 0 },
-    // Page 306, Q139
-    { id: 62, q: "In which year was major change brought in the structure of Union Council?", opt: ["1976", "1985", "1997", "1998"], ans: 2 },
-    // Page 306, Q140
-    { id: 63, q: "Which one structure is applicable in terms of the formation of Union Parishad?", opt: ["1 chairman + 8 members", "1 chairman + 9 members", "1 chairman + 9 members + 4 women members", "1 chairman + 9 members + 3 women members"], ans: 3 },
-    // Page 306, Q141
-    { id: 64, q: "In the context of present Bangladesh, which organization of the local autonomous government is considered most effective?", opt: ["Village government", "Union Parishad", "Upazila administration", "Divisional administration"], ans: 1 },
-    // Page 306, Q142
-    { id: 65, q: "Mr. Aslam works with 13 members at the local autonomous organization. Which organization has he been mentioned here?", opt: ["Upazila Council", "District parishad", "Union Council", "Village parishad"], ans: 2 },
-    // Page 306, Q143
-    { id: 66, q: "How many general members of a ward are elected by the voters?", opt: ["One", "Two", "Three", "Nine"], ans: 0 },
-    // Page 306, Q144
-    { id: 67, q: "A woman member is elected in how many wards?", opt: ["2 wards", "3 wards", "4 wards", "5 wards"], ans: 1 },
-    // Page 306, Q145
-    { id: 68, q: "What is the tenure of the Union Council?", opt: ["4 years", "5 years", "6 years", "8 years"], ans: 1 },
-    // Page 307, Q158
-    { id: 69, q: "On which date was the District Council Law-2000 introduced?", opt: ["April 6", "May 6", "July 6", "August 6"], ans: 1 },
-    // Page 307, Q159
-    { id: 70, q: "The district council performs the development tasks for its local people —", opt: ["Religious", "Ethical", "Materialistic", "i, ii & iii"], ans: 2 },
-    // Page 307, Q160
-    { id: 71, q: "Optional function of the district council includes —", opt: ["Establishing healthcare centers", "Supplying water for irrigation", "Improving the communication system", "i, ii & iii"], ans: 3 },
-    // Page 307, Q161
-    { id: 72, q: "Mandatory function of the district council includes —", opt: ["Observing all the development tasks of the district", "Providing wages of the educational institutes", "Planting trees besides the roads for the people", "i & ii"], ans: 0 },
-    // Page 307, Q162
-    { id: 73, q: "What is the top official of the district council like Mr. Babui is called?", opt: ["Mayor", "Chairman", "District commissioner", "Councilor"], ans: 1 },
-    // Page 307, Q163
-    { id: 74, q: "Optional function of Mr. Babui includes —", opt: ["Giving license", "Social welfare", "Economic development", "i, ii & iii"], ans: 3 },
-    // Page 307, Q164
-    { id: 75, q: "Through the legal means the Dhaka City Corporation has been divided into how many parts?", opt: ["Two", "Three", "Four", "Five"], ans: 0 },
-    // Page 307, Q165
-    { id: 76, q: "Which organization manages the tasks related to fire controlling and fire safety?", opt: ["Pourashava", "Upazilaparishad", "District parishad", "Union parishad"], ans: 0 },
-    // Page 307, Q166
-    { id: 77, q: "In the pourashava area the buildings are constructed based on what approved plan?", opt: ["District parishad", "Upazila parishad", "Pourashava", "Union parishad"], ans: 2 },
-    // Page 307, Q167
-    { id: 78, q: "For the overall development in the city area which organization prepares and implements various projects?", opt: ["City corporation", "District parishad", "Upazila parishad", "Pourashava"], ans: 0 },
-    // Page 307, Q168
-    { id: 79, q: "Narsingdi is a district. Which one may be available in this district?", opt: ["High Court", "City corporation", "Pourashava", "Divisional administration"], ans: 2 },
-    // Page 307, Q169
-    { id: 80, q: "Due to local administrative system, local development has been possible—", opt: ["Not to face the central government", "To be free from the bureaucratic complexities", "To be free from law related complexities", "i, ii & iii"], ans: 3 },
-    // Page 307, Q170
-    { id: 81, q: "Social welfare related function of the pourashava is—", opt: ["Establishing delivery centers", "Establishing welfare centers", "Establishing orphanages", "i, ii & iii"], ans: 3 },
-    // Page 307, Q171
-    { id: 82, q: "Pourashava can adopt arbitration-related initiative to resolve—", opt: ["Family problems", "Quarrelling", "Fighting and aggression", "i, ii & iii"], ans: 3 },
-    // Page 307, Q172
-    { id: 83, q: "City corporation has been established —", opt: ["To resolve various problems of the city dwellers", "To increase the benefits of the city dwellers", "To ensure overall development of the city", "i, ii & iii"], ans: 3 },
-    // Page 307, Q173
-    { id: 84, q: "Education related function of the pourashava is —", opt: ["Imparting training to the teachers", "Construction of hotels", "Distributing books at free of cost", "i & ii"], ans: 2 },
-    // Page 308, Q176
-    { id: 85, q: "The work of Judiciary is —", opt: ["establishing the rule of law", "preserving Fundamental Rights Protection Act", "explaining the law", "i and ii"], ans: 0 },
-    // Page 308, Q177
-    { id: 86, q: "To manage the finances and resources of the state properly is —", opt: ["mandatory work", "functions of Governance department", "work of the legal department", "i and ii"], ans: 1 },
-    // Page 308, Q179
-    { id: 87, q: "The mentioned component is composed of—", opt: ["the law department", "the governance department", "the judicial department", "ii and iii"], ans: 1 },
-    // Page 308, Q180
-    { id: 88, q: "What kind of work of the state has been indicated by the stem?", opt: ["Mandatory or main", "Welfare", "Optional", "Involuntary"], ans: 0 },
-    // Page 309, Q4 (SSC Previous Year)
-    { id: 89, q: "Mr. 'Y' is a member of an organization that includes three reserved female members. The organization of Mr. 'Y' is —", opt: ["Municipality", "Union Council", "Upazila Council", "District Council"], ans: 1 },
-    // Page 309, Q8 (SSC Previous Year)
-    { id: 90, q: "Which country's legislature is unicameral?", opt: ["Bangladesh", "India", "United Kingdom", "United States"], ans: 0 }
+    // Q1: Who determines the electoral area?
+    { id: 1, q: "Who determines the electoral area?", opt: ["Deputy Commissioner", "Returning Officer", "Election Commission", "National Parliament"], ans: 2 },
+    // Q2: If democratic rule is established—
+    { id: 2, q: "If democratic rule is established—\ni. Opportunities for people's self-development increase\nii. People's rights are upheld\niii. Dominance of beaurocracy is established", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 0, multi: true },
+    // Q3: Whose job is to prepare the voter list? [D. B.-25]
+    { id: 3, q: "Whose job is to prepare the voter list? [D. B.-25]", opt: ["Human Rights Commission", "Election Commissioner", "Anti Corruption Commission", "Voter Commission"], ans: 1 },
+    // Q4: On which date is the first general election of Bangladesh held? [R. B.-25]
+    { id: 4, q: "On which date is the first general election of Bangladesh held? [R. B.-25]", opt: ["7 March", "7 April", "7 May", "7 June"], ans: 2 },
+    // Q5: In what year was the 9th national parliament election held in the country? [R. B.-25]
+    { id: 5, q: "In what year was the 9th national parliament election held in the country? [R. B.-25]", opt: ["1991", "1996", "2001", "2008"], ans: 3 },
+    // Q6: Who acts as the chairman of the election commission? [D. B.-25]
+    { id: 6, q: "Who acts as the chairman of the election commission? [D. B.-25]", opt: ["President", "Prime Minister", "Senior Secretary", "Chief Election Commissioner"], ans: 3 },
+    // Q7: The president of which country is elected by electoral college? [C. B.-25]
+    { id: 7, q: "The president of which country is elected by electoral college? [C. B.-25]", opt: ["England", "Japan", "China Republic", "USA"], ans: 3 },
+    // Q8: Which country is the origin of modern democracy? [Ctg. B.-25]
+    { id: 8, q: "Which country is the origin of modern democracy? [Ctg. B.-25]", opt: ["Greece", "The USA", "England", "France"], ans: 0 },
+    // Q9: What is the punishment for voting with Pseudonym? [Ctg. B.-25]
+    { id: 9, q: "What is the punishment for voting with Pseudonym? [Ctg. B.-25]", opt: ["Six months rigorous imprisonment with fine.", "One year imprisonment with fine.", "Two years rigorous imprisonment with fine.", "One year rigorous imprisonment with fine."], ans: 2 },
+    // Q10: During the period of election, for which criminal activities are given punishment at least 2 years rigorous imprisonment? [S. B.-25]
+    { id: 10, q: "During the period of election, for which criminal activities are given punishment at least 2 years rigorous imprisonment? [S. B.-25]", opt: ["Mass meeting on the high way", "To use govt. leaflets", "To give fidgetiness of speech", "For casting vote on a pseudonym"], ans: 3 },
+    // Q11: Which is the main source state of democratic trend of thoughts in the world? [J. B.-25]
+    { id: 11, q: "Which is the main source state of democratic trend of thoughts in the world? [J. B.-25]", opt: ["England", "India", "America", "Switzerland"], ans: 0 },
+    // Q12: What is the main objective of the political parties? [J. B.-25]
+    { id: 12, q: "What is the main objective of the political parties? [J. B.-25]", opt: ["Adoption of party programmes", "Forming public opinion", "Taking state power", "Electoral Campaign"], ans: 2 },
+    // Q13: Why should we vote the honest persons? [B. B.-25]
+    { id: 13, q: "Why should we vote the honest persons? [B. B.-25]", opt: ["To maintain democracy", "For good communication", "For good governance", "To run the state"], ans: 2 },
+    // Q14: "Modern democratic governance is the political party government in practice." — who said this? [B. B.-25]
+    { id: 14, q: "\"Modern democratic governance is the political party government in practice.\" — who said this? [B. B.-25]", opt: ["Maclver", "Finer", "Getel", "Aristotle"], ans: 1 },
+    // Q15: What is the function of returning officer? [DR-4]
+    { id: 15, q: "What is the function of returning officer? [DR-4]", opt: ["Fixation of the election area", "Sorting out of the nomination papers", "Conducting the election", "Making the list of voters"], ans: 2 },
+    // Q16: How many seats are reserved for women in Jatiya Sangsad? [D/B-24]
+    { id: 16, q: "How many seats are reserved for women in Jatiya Sangsad? [D/B-24]", opt: ["30", "50", "300", "350"], ans: 1 },
+    // Q17: The head administrative officer of ministry is — [DR-B-24]
+    { id: 17, q: "The head administrative officer of ministry is — [DR-B-24]", opt: ["Minister", "Secretary", "Additional Secretary", "Joint Secretary"], ans: 1 },
+    // Q18: "Cha" is a political party. Which is the work of "Cha" party? [CB-B-24]
+    { id: 18, q: "\"Cha\" is a political party. Which is the work of \"Cha\" party? [CB-B-24]", opt: ["Explain the law", "Composing constitution", "Implementation of law", "Formative opposition"], ans: 3 },
+    // Q19: Which is most important matter of democracy? [CB-B-24]
+    { id: 19, q: "Which is most important matter of democracy? [CB-B-24]", opt: ["Election", "Responsible citizen", "Formative politics", "Good judgment"], ans: 0 },
+    // Q20: Modern democratic governance is mainly — [CB-B-24]
+    { id: 20, q: "Modern democratic governance is mainly — [CB-B-24]", opt: ["powerful and organized government system", "an election organization based on public representatives", "governance of trustworthy and majority people", "a political party government"], ans: 3 },
+    // Q21: At present, direct democracy is prevailed/run in which country? [B-B-24]
+    { id: 21, q: "At present, direct democracy is prevailed/run in which country? [B-B-24]", opt: ["Norway", "England", "Greece", "Switzerland"], ans: 3 },
+    // Q22: In which article of the constitution of Bangladesh is said about the establishment of Jatiyo Sangasad? [B-B-24]
+    { id: 22, q: "In which article of the constitution of Bangladesh is said about the establishment of Jatiyo Sangasad? [B-B-24]", opt: ["47", "53", "65", "71"], ans: 2 },
+    // Q23: The characteristics of a political party are — [D-B-25] i. arranging program ii. creating public support iii. taking over power
+    { id: 23, q: "The characteristics of a political party are — [D-B-25]\ni. arranging program\nii. creating public support\niii. taking over power", opt: ["i & ii", "i & iii", "ii & iii", "i, ii & iii"], ans: 3, multi: true },
+    // Q24: Political party is important in democracy. Because it — [M-B-25] i. conducts the government on the right way ii. improves standard of living of people iii. increases political awareness
+    { id: 24, q: "Political party is important in democracy. Because it — [M-B-25]\ni. conducts the government on the right way\nii. improves standard of living of people\niii. increases political awareness", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 3, multi: true },
+    // Q25: In democratic ruling system — [R-B-24] i. opinion of the majority is granted in the legislature ii. interest of people is protected iii. corrupted people also get the opportunity to represent
+    { id: 25, q: "In democratic ruling system — [R-B-24]\ni. opinion of the majority is granted in the legislature\nii. interest of people is protected\niii. corrupted people also get the opportunity to represent", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 0, multi: true },
+    // Q26: Democracy means — [R-B-24] i. administrative by the people ii. administrative welfare iii. administrative by the representative
+    { id: 26, q: "Democracy means — [R-B-24]\ni. administrative by the people\nii. administrative welfare\niii. administrative by the representative", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 3, multi: true },
+    // Q27: In school 'A', the students of eighth grade elected five students through voting. Those five students sat together and unanimously selected one of them as the class captain. [MR-B-24] In which type of election the students took part?
+    { id: 27, q: "In school 'A', the students of eighth grade elected five students through voting. Those five students sat together and unanimously selected one of them as the class captain. [MR-B-24]\nIn which type of election the students took part?", opt: ["Direct", "Democratic", "Electoral", "Dictatorial"], ans: 0 },
+    // Q28: In Bangladesh the reflection of such election will occur— i. in president election ii. in general election iii. in female MP election
+    { id: 28, q: "In school 'A', the students of eighth grade elected five students through voting. Those five students sat together and unanimously selected one of them as the class captain. [MR-B-24]\nIn Bangladesh the reflection of such election will occur—\ni. in president election\nii. in general election\niii. in female MP election", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 1, multi: true },
+    // Q29: Bangladesh Government has an institution named as 'A'; whose duty is to conduct free and fair elections. [MR-B-24] What is the name of the institution—"A"?
+    { id: 29, q: "Bangladesh Government has an institution named as 'A'; whose duty is to conduct free and fair elections. [MR-B-24]\nWhat is the name of the institution—\"A\"?", opt: ["Public service commission", "Anti-corruption commission", "Narcotics control commission", "Election commission"], ans: 3 },
+    // Q30: Activities of that institution— i. to appoint returning officers ii. to solve nomination related disputes iii. to ensure public support
+    { id: 30, q: "Bangladesh Government has an institution named as 'A'; whose duty is to conduct free and fair elections. [MR-B-24]\nActivities of that institution—\ni. to appoint returning officers\nii. to solve nomination related disputes\niii. to ensure public support", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 0, multi: true },
+    // Q31: Modern democratic governance is the political party government in practice—who said this? [The Millennium Stars School and College, Rangpur]
+    { id: 31, q: "Modern democratic governance is the political party government in practice—who said this? [The Millennium Stars School and College, Rangpur]", opt: ["Maclver", "Finer", "Gattel", "Aristotle"], ans: 1 },
+    // Q32: Why should we vote the honest persons? [The Millennium Stars School and College, Rangpur]
+    { id: 32, q: "Why should we vote the honest persons? [The Millennium Stars School and College, Rangpur]", opt: ["To maintain democracy", "For good communication", "For good governance", "To run the state"], ans: 2 },
+    // Q33: What is the main objective of the political party? [Chattogram Cantonment Public College, Chattogram]
+    { id: 33, q: "What is the main objective of the political party? [Chattogram Cantonment Public College, Chattogram]", opt: ["To give support to the public", "To establish domination of others", "To find the obstacles of the country", "To achieve the development of the party"], ans: 3 },
+    // Q34: Who fixes the boundary of the constituency? [Halishahar Cantonment Public School & College, Chattogram]
+    { id: 34, q: "Who fixes the boundary of the constituency? [Halishahar Cantonment Public School & College, Chattogram]", opt: ["home Minister", "information Ministry", "chief justice", "election commission"], ans: 3 },
+    // Q35: Democracy was first introduced in—[Halishahar Cantonment Public School & College, Chattogram]
+    { id: 35, q: "Democracy was first introduced in—[Halishahar Cantonment Public School & College, Chattogram]", opt: ["United Kingdom", "America", "Greece", "Paris"], ans: 2 },
+    // Q36: Political parties are important in democracy because— [Swar Cantonment Public School & College, Dhaka] i. constitutes public opinion ii. shows strength of the party iii. increase political awareness
+    { id: 36, q: "Political parties are important in democracy because— [Swar Cantonment Public School & College, Dhaka]\ni. constitutes public opinion\nii. shows strength of the party\niii. increase political awareness", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 3, multi: true },
+    // Q37: In how many primary methods is democracy implemented? (Knowledge)
+    { id: 37, q: "In how many primary methods is democracy implemented? (Knowledge)", opt: ["2", "4", "3", "5"], ans: 2 },
+    // Q38: What is the other name for Direct Democracy? (Knowledge)
+    { id: 38, q: "What is the other name for Direct Democracy? (Knowledge)", opt: ["Pure Democracy", "Representative Democracy", "Indirect Democracy", "Autocracy"], ans: 0 },
+    // Q39: Due to the expansion of state systems, which type of democracy is almost impossible to practice? (Comprehension)
+    { id: 39, q: "Due to the expansion of state systems, which type of democracy is almost impossible to practice? (Comprehension)", opt: ["Representative Democracy", "Indirect Democracy", "Pure Democracy", "Public Opinion Democracy"], ans: 2 },
+    // Q40: According to Abraham Lincoln, the elected government serves for — (Comprehension)
+    { id: 40, q: "According to Abraham Lincoln, the elected government serves for — (Comprehension)", opt: ["President", "Prime Minister", "Bureaucrats", "The people"], ans: 3 },
+    // Q41: Which country is regarded as the root of democratic values? (Knowledge)
+    { id: 41, q: "Which country is regarded as the root of democratic values? (Knowledge)", opt: ["Greece", "England", "Australia", "France"], ans: 1 },
+    // Q42: Which one is the most acceptable government system in the contemporary world? (Knowledge)
+    { id: 42, q: "Which one is the most acceptable government system in the contemporary world? (Knowledge)", opt: ["Socialist", "Monarchical", "Autocratic", "Democratic"], ans: 3 },
+    // Q43: According to the definition of democracy by Professor Getel, people can enjoy what power? (Comprehension)
+    { id: 43, q: "According to the definition of democracy by Professor Getel, people can enjoy what power? (Comprehension)", opt: ["Citizenship", "Sovereignty", "Law", "State"], ans: 1 },
+    // Q44: What has the government of Bangladesh established for the parliamentary election? (Knowledge)
+    { id: 44, q: "What has the government of Bangladesh established for the parliamentary election? (Knowledge)", opt: ["Election Commission", "Secretariat", "Public Works Department", "National Board of Revenue"], ans: 0 },
+    // Q45: Democracy is a result of what government system? (Comprehension)
+    { id: 45, q: "Democracy is a result of what government system? (Comprehension)", opt: ["Divine", "Historic", "Social contract", "Natural"], ans: 1 },
+    // Q46: In which century was democratic system observed in many countries? (Knowledge)
+    { id: 46, q: "In which century was democratic system observed in many countries? (Knowledge)", opt: ["19th & 20th centuries", "18th & 19th centuries", "17th & 18th centuries", "16th & 17th centuries"], ans: 1 },
+    // Q47: After Medieval period, where did democracy reemerge? (Knowledge)
+    { id: 47, q: "After Medieval period, where did democracy reemerge? (Knowledge)", opt: ["America", "Africa", "Europe", "Asia"], ans: 2 },
+    // Q48: What is the successful outcome of flourishing democracy? (Comprehension)
+    { id: 48, q: "What is the successful outcome of flourishing democracy? (Comprehension)", opt: ["Democratic culture", "Civil society", "Political administration", "Popular government"], ans: 0 },
+    // Q49: Political Science Professor Asif was telling about a government system which is a popular concept of the 20th century. What government system was the teacher referring to? (Application)
+    { id: 49, q: "Political Science Professor Asif was telling about a government system which is a popular concept of the 20th century. What government system was the teacher referring to? (Application)", opt: ["Monarchy", "Autocracy", "Socialism", "Democracy"], ans: 3 },
+    // Q50: The people of which country assume that democracy is such a political administrative system where all the citizens can directly participate? (Knowledge)
+    { id: 50, q: "The people of which country assume that democracy is such a political administrative system where all the citizens can directly participate? (Knowledge)", opt: ["Australia", "South Africa", "Greece", "America"], ans: 2 },
+    // Q51: Democracy is such a political administrative system — (Comprehension) i. provision of the change in government after the end of the tenure ii. fair election system iii. right of votes of the eligible voters
+    { id: 51, q: "Democracy is such a political administrative system — (Comprehension)\ni. provision of the change in government after the end of the tenure\nii. fair election system\niii. right of votes of the eligible voters", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 3, multi: true },
+    // Q52: Democracy means — (Comprehension) i. rulers of the people ii. representative government iii. welfare based administrative system
+    { id: 52, q: "Democracy means — (Comprehension)\ni. rulers of the people\nii. representative government\niii. welfare based administrative system", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 3, multi: true },
+    // Q53: Europe in the Medieval period had — (Comprehension) i. dual-system rule by religion and king ii. autocracy iii. feudal system
+    { id: 53, q: "Europe in the Medieval period had — (Comprehension)\ni. dual-system rule by religion and king\nii. autocracy\niii. feudal system", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 3, multi: true },
+    // Q54: After a long time democracy reemerged in Europe — (Comprehension) i. in 17th century ii. in 18th century iii. in 19th century
+    { id: 54, q: "After a long time democracy reemerged in Europe — (Comprehension)\ni. in 17th century\nii. in 18th century\niii. in 19th century", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 0, multi: true },
+    // Q55: What was direct democracy effective? (Application) [Stem: Democracy is the most popular government system...]
+    { id: 55, q: "Democracy is the most popular government system of the present time. Democracy is a system that is run by the representatives elected by the people. Democracy upholds freedom of speech and basic rights of the citizens. At present, there is no better government system in the world in terms of ensuring welfare to its citizens.\nWhat was direct democracy effective? (Application)", opt: ["Ancient Greece", "Rome", "USA", "China"], ans: 0 },
+    // Q56: Why is not direct democracy observed in the contemporary world? (Higher Ability) i. Because of large area of the states ii. Because of over population iii. Because of instability of the government
+    { id: 56, q: "Democracy is the most popular government system of the present time. Democracy is a system that is run by the representatives elected by the people. Democracy upholds freedom of speech and basic rights of the citizens. At present, there is no better government system in the world in terms of ensuring welfare to its citizens.\nWhy is not direct democracy observed in the contemporary world? (Higher Ability)\ni. Because of large area of the states\nii. Because of over population\niii. Because of instability of the government", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 0, multi: true },
+    // Q57: What is the other name of direct democracy? (Knowledge)
+    { id: 57, q: "What is the other name of direct democracy? (Knowledge)", opt: ["Indirect democracy", "Representative democracy", "Pure democracy", "Autocracy"], ans: 2 },
+    // Q58: What is the other name of indirect democracy? (Knowledge)
+    { id: 58, q: "What is the other name of indirect democracy? (Knowledge)", opt: ["Pure democracy", "Direct democracy", "Representative democracy", "Basic democracy"], ans: 2 },
+    // Q59: What is the ruling system that enables the citizens to participate in the administration directly called? (Comprehension)
+    { id: 59, q: "What is the ruling system that enables the citizens to participate in the administration directly called? (Comprehension)", opt: ["Direct democracy", "Indirect democracy", "Representative democracy", "Feudal system"], ans: 0 },
+    // Q60: Large area and over population of the states is an obstacle for which administrative system? (Comprehension)
+    { id: 60, q: "Large area and over population of the states is an obstacle for which administrative system? (Comprehension)", opt: ["Direct democracy", "Indirect democracy", "Representative democracy", "Autocracy"], ans: 0 },
+    // Q61: What is the administrative system run by the election of the representatives called? (Knowledge)
+    { id: 61, q: "What is the administrative system run by the election of the representatives called? (Knowledge)", opt: ["Direct democracy", "Indirect democracy", "Pure democracy", "Monarchy"], ans: 1 },
+    // Q62: In which ruling system do the elected representatives perform the administrative tasks including lawmaking? (Comprehension)
+    { id: 62, q: "In which ruling system do the elected representatives perform the administrative tasks including lawmaking? (Comprehension)", opt: ["Direct democracy", "Autocracy", "Monarchy", "Indirect democracy"], ans: 3 },
+    // Q63: What kind of democratic system is observed in the modern states? (Knowledge)
+    { id: 63, q: "What kind of democratic system is observed in the modern states? (Knowledge)", opt: ["Representative democracy", "Direct democracy", "Monarchy", "Autocracy"], ans: 0 },
+    // Q64: How is the democratic system conducted? (Comprehension)
+    { id: 64, q: "How is the democratic system conducted? (Comprehension)", opt: ["By public opinion", "By population", "By judiciary", "By acknowledgement"], ans: 0 },
+    // Q65: In democracy, the interest of the people is given priority to determine what? (Comprehension)
+    { id: 65, q: "In democracy, the interest of the people is given priority to determine what? (Comprehension)", opt: ["Collection of state funds", "Policies of the state", "Campaigning the activities of the state", "Demarcating the boundaries of the state"], ans: 1 },
+    // Q66: What is the main purpose of democracy? (Knowledge)
+    { id: 66, q: "What is the main purpose of democracy? (Knowledge)", opt: ["To express the opposition", "To ensure people's welfare", "To establish socialist state", "To establish rule of law"], ans: 1 },
+    // Q67: Why can illiterate, unworthy and corrupt people come into power by winning the election in democracy? (Comprehension)
+    { id: 67, q: "Why can illiterate, unworthy and corrupt people come into power by winning the election in democracy? (Comprehension)", opt: ["Rule of the minority", "Rule of the majority", "Ignorant people", "Illiterate people"], ans: 1 },
+    // Q68: In the democratic system, why can't the minorities elect their representatives in the legislature? (Comprehension)
+    { id: 68, q: "In the democratic system, why can't the minorities elect their representatives in the legislature? (Comprehension)", opt: ["Rule of the minority", "Rule of the majority", "Weak administrative system", "Administrative system of the ignorant"], ans: 1 },
+    // Q69: What happens when the ruling party of an underdeveloped country performs the activities in light of its party interests? (Comprehension)
+    { id: 69, q: "What happens when the ruling party of an underdeveloped country performs the activities in light of its party interests? (Comprehension)", opt: ["Partiality gets hampered", "Neutrality gets hampered", "Interests of the minorities get protected", "People's confidence on the government gets hampered"], ans: 3 },
+    // Q70: For most of the democratic states, the true information is—(Comprehension) i. citizens do not directly participate in the administrative functions ii. elected representatives conduct the administrative functions iii. direct interference of the citizens in law making
+    { id: 70, q: "For most of the democratic states, the true information is—(Comprehension)\ni. citizens do not directly participate in the administrative functions\nii. elected representatives conduct the administrative functions\niii. direct interference of the citizens in law making", opt: ["i & ii", "ii & iii", "i & iii", "i, ii & iii"], ans: 0, multi: true },
 ];
 
 // Phase 2: JavaScript Application Logic
-let userAnswers = new Array(questions.length).fill(null);
+let userAnswers = new Array(questions.length).fill(null).map(() => []);
 let currentIndex = 0;
 let isSubmitted = false;
 let timerInterval = null;
@@ -204,6 +164,7 @@ const currentQNum = document.getElementById('current-q-num');
 const totalQNum = document.getElementById('total-q-num');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
+const submitBtn = document.getElementById('submit-exam-btn');
 
 const viewResultsBtn = document.getElementById('view-results-btn');
 const backToHomeBtn = document.getElementById('back-to-home-btn');
@@ -261,32 +222,53 @@ function renderQuestion(index) {
     optionsContainer.innerHTML = '';
     const labels = ['A', 'B', 'C', 'D'];
     
+    const selectedIndexes = userAnswers[index] || [];
+    const isMulti = q.multi === true;
+    
     q.opt.forEach((opt, i) => {
         const div = document.createElement('div');
         div.className = 'option-item';
-        if (userAnswers[index] === i) div.classList.add('selected');
+        if (selectedIndexes.includes(i)) div.classList.add('selected');
 
-        const radio = document.createElement('input');
-        radio.type = 'radio';
-        radio.name = `q${q.id}`;
-        radio.value = i;
-        radio.checked = userAnswers[index] === i;
+        const input = document.createElement('input');
+        input.type = isMulti ? 'checkbox' : 'radio';
+        input.name = `q${q.id}`;
+        input.value = i;
+        input.checked = selectedIndexes.includes(i);
 
-        radio.addEventListener('change', () => {
-            userAnswers[index] = i;
-            document.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected'));
-            div.classList.add('selected');
+        input.addEventListener('change', () => {
+            if (isMulti) {
+                if (input.checked) {
+                    if (!userAnswers[index].includes(i)) {
+                        userAnswers[index].push(i);
+                    }
+                } else {
+                    userAnswers[index] = userAnswers[index].filter(val => val !== i);
+                }
+                div.classList.toggle('selected', input.checked);
+            } else {
+                // For radio buttons, clear all others in this question
+                userAnswers[index] = [i];
+                document.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected'));
+                div.classList.add('selected');
+                // Update other radio inputs
+                document.querySelectorAll(`input[name="q${q.id}"]`).forEach(el => {
+                    el.checked = el.value == i;
+                });
+            }
         });
 
         const span = document.createElement('span');
         span.textContent = `${labels[i]}. ${opt}`;
 
-        div.appendChild(radio);
+        div.appendChild(input);
         div.appendChild(span);
         
-        div.addEventListener('click', () => {
-            radio.checked = true;
-            radio.dispatchEvent(new Event('change'));
+        div.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'INPUT') {
+                input.checked = !input.checked;
+                input.dispatchEvent(new Event('change'));
+            }
         });
 
         optionsContainer.appendChild(div);
@@ -309,14 +291,14 @@ nextBtn.addEventListener('click', () => {
         currentIndex++;
         renderQuestion(currentIndex);
     } else {
-        document.getElementById('submit-exam-btn').click();
+        submitBtn.click();
     }
 });
 
 // Timer Logic
 function startTimer() {
     if (timerInterval) clearInterval(timerInterval);
-    timeLeft = 85 * 60; // 1 hour 25 mins in seconds
+    timeLeft = 60 * 60; // 1 hour in seconds
     updateTimerDisplay();
 
     timerInterval = setInterval(() => {
@@ -359,10 +341,10 @@ function autoSubmitExam() {
 }
 
 // Submission and Results
-document.getElementById('submit-exam-btn').addEventListener('click', () => {
+submitBtn.addEventListener('click', () => {
     if (isSubmitted) return;
     
-    const unanswered = userAnswers.filter(a => a === null).length;
+    const unanswered = userAnswers.filter(a => a.length === 0).length;
     if (unanswered === questions.length) {
         alert("You haven't answered any questions. Please attempt at least one question before submitting.");
         return;
@@ -375,13 +357,14 @@ document.getElementById('submit-exam-btn').addEventListener('click', () => {
     }
 });
 
-function saveAttempt(name, roll, score, total) {
+function saveAttempt(name, roll, score, total, details) {
     let attempts = JSON.parse(localStorage.getItem('examAttempts')) || [];
     attempts.push({
         name: name,
         roll: roll,
         score: score.toFixed(1),
         total: total,
+        details: details,
         timestamp: new Date().toLocaleString()
     });
     localStorage.setItem('examAttempts', JSON.stringify(attempts));
@@ -392,24 +375,30 @@ function calculateAndShowResults() {
     let correct = 0;
     let wrong = 0;
     let attempted = 0;
+    const details = [];
 
     userAnswers.forEach((ans, index) => {
-        if (ans !== null) {
+        const q = questions[index];
+        const isCorrect = arraysEqual(ans.sort(), q.ans.sort());
+        if (ans.length > 0) {
             attempted++;
-            if (ans === questions[index].ans) {
+            if (isCorrect) {
                 correct++;
             } else {
                 wrong++;
             }
         }
+        details.push({
+            question: q.q,
+            userAnswer: ans.map(i => String.fromCharCode(65 + i)).join(', '),
+            correctAnswer: q.ans.map(i => String.fromCharCode(65 + i)).join(', '),
+            isCorrect: isCorrect,
+            attempted: ans.length > 0
+        });
     });
 
     const unanswered = questions.length - attempted;
-    const positiveMarks = correct;
-    const wrongPenalty = wrong * 0.5;
-    const unansweredPenalty = unanswered * 0.7;
-    const negativeMarks = wrongPenalty + unansweredPenalty;
-    const finalScore = positiveMarks - negativeMarks;
+    const finalScore = correct - (wrong * 0.5);
 
     const studentName = localStorage.getItem('studentName');
     const examNumber = localStorage.getItem('examNumber');
@@ -425,23 +414,64 @@ function calculateAndShowResults() {
     document.getElementById('res-correct').textContent = correct;
     document.getElementById('res-wrong').textContent = wrong;
     document.getElementById('res-unanswered').textContent = unanswered;
-    document.getElementById('res-pos').textContent = positiveMarks.toFixed(1);
-    document.getElementById('res-wrong-penalty').textContent = wrongPenalty.toFixed(1);
-    document.getElementById('res-unanswered-penalty').textContent = unansweredPenalty.toFixed(1);
-    document.getElementById('res-neg').textContent = negativeMarks.toFixed(1);
     document.getElementById('res-final-score').textContent = finalScore.toFixed(1);
 
+    // Show detailed answer review
+    const reviewContainer = document.getElementById('answer-review');
+    reviewContainer.innerHTML = '<h3>Answer Review</h3>';
+    const table = document.createElement('table');
+    table.style.cssText = 'width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px;';
+    table.innerHTML = `
+        <thead>
+            <tr style="background: #f5f5f5;">
+                <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">#</th>
+                <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Question</th>
+                <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Your Answer</th>
+                <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Correct Answer</th>
+                <th style="padding: 8px; border: 1px solid #ddd; text-align: center;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    `;
+    const tbody = table.querySelector('tbody');
+    
+    details.forEach((d, i) => {
+        const tr = document.createElement('tr');
+        const status = d.attempted ? (d.isCorrect ? '✓' : '✗') : '—';
+        const statusColor = d.attempted ? (d.isCorrect ? '#28a745' : '#dc3545') : '#6c757d';
+        tr.innerHTML = `
+            <td style="padding: 6px 8px; border: 1px solid #ddd;">${i + 1}</td>
+            <td style="padding: 6px 8px; border: 1px solid #ddd; max-width: 300px;">${d.question.substring(0, 100)}${d.question.length > 100 ? '...' : ''}</td>
+            <td style="padding: 6px 8px; border: 1px solid #ddd;">${d.attempted ? d.userAnswer : 'Not attempted'}</td>
+            <td style="padding: 6px 8px; border: 1px solid #ddd;">${d.correctAnswer}</td>
+            <td style="padding: 6px 8px; border: 1px solid #ddd; text-align: center; color: ${statusColor}; font-weight: bold;">${status}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+    
+    reviewContainer.appendChild(table);
+
     // Save history
-    saveAttempt(studentName, examNumber, finalScore, questions.length);
+    saveAttempt(studentName, examNumber, finalScore, questions.length, details);
 
     examPage.style.display = 'none';
     resultPage.style.display = 'flex';
 }
 
+// Helper function to compare arrays
+function arraysEqual(a, b) {
+    if (a.length !== b.length) return false;
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) return false;
+    }
+    return true;
+}
+
 // Restart
 document.getElementById('restart-btn').addEventListener('click', () => {
     if (timerInterval) clearInterval(timerInterval);
-    userAnswers = new Array(questions.length).fill(null);
+    userAnswers = new Array(questions.length).fill(null).map(() => []);
     currentIndex = 0;
     isSubmitted = false;
     resultPage.style.display = 'none';

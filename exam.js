@@ -177,7 +177,7 @@ document.getElementById('start-exam-btn').addEventListener('click', () => {
     const subject = document.getElementById('subject').value.trim();
 
     if (!name || !roll || !subject) {
-        alert("Please fill in all fields (Name, Roll/ID, Subject) before starting the exam.");
+        alert("Please enter your name and Roll/ID before starting the exam.");
         return;
     }
 

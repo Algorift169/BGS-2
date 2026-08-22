@@ -1,6 +1,3 @@
-import disableDevtool from 'disable-devtool';
-disableDevtool();
-
 // Phase 1: Question Bank (70 Extracted Board-Relevant MCQs from Guide Book Images)
 const questions = [
     // Q1: Who determines the electoral area?
